@@ -1,4 +1,5 @@
 import json
+from os import environ
 
 import chromedriver_binary
 from selenium import webdriver
@@ -25,8 +26,8 @@ API_KEY = '94348-9117474f56856ca63c4ecf4a'
 USR = 'd.tresoldi5@gmail.com'
 PSW = 'JbdQb5HqR2sUsD'
 
-token_v2 = "e44e7dc15d0b347590c22738b6a35be81d127b33d4cf3b453d48e4120f803018cff17ac6ee4dc7f12d4ef36a2d555afd470de8efcf5d019569b1ee9de39d7c014871e0cd30a0358e1cbcc9eda427"
-page_link = "https://www.notion.so/d33eb846557b4b31bbfc905ef8949ec0?v=342d3e351b2c4cfb8a6f9c36a2bb17f0"
+token_v2 = environ.get("TOKEN_V2", "")
+page_link = environ.get("NOTION_LINK", "")
 
 pocket = Pocket(consumer_key=API_KEY, user_email=USR, password=PSW, browser=browser)
 
