@@ -11,6 +11,6 @@ steps:
               "--memory=${_MEMORY}",
               "--trigger-topic=${_TOPIC}",
               "--entry-point=main",
-              "--project=${_PROJECT_ID}",
+              "--project=${PROJECT_ID}",
               "--set-env-vars=TOKEN_V2=${_TOKEN_V2},NOTION_LINK=${_NOTION_LINK},API_KEY=${_API_KEY},USR=${_USR},PSW=${_PSW}"
           ]
