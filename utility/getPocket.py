@@ -1,8 +1,8 @@
 
 # import json
-from datetime import datetime
+# from datetime import datetime
 
-import pytz
+# import pytz
 import requests
 
 from utility.logs import setup_log
@@ -20,7 +20,6 @@ class Pocket():
             password (string): getpocket password
             browser (string): Browser settings
         """
-
         self.browser = browser
         self.user_email = user_email
         self.password = password
