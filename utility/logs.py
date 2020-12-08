@@ -9,7 +9,7 @@ FLASK_ENV = os.environ.get("FLASK_ENV", 'prod')
 class StackdriverFormatter(logging.Formatter):
 
     def __init__(self, *args, **kwargs):
-        """GCP StackdriverFormatter"""
+        """GCP StackdriverFormatter."""
         super(StackdriverFormatter, self).__init__(*args, **kwargs)
 
     def format(self, record):
