@@ -1,5 +1,5 @@
 
-import json
+# import json
 from datetime import datetime
 
 import pytz
@@ -12,6 +12,15 @@ logger = setup_log(module_name=__name__, log_level="DEBUG")
 
 class Pocket():
     def __init__(self, consumer_key, user_email, password, browser):
+        """Getpocket handler
+
+        Args:
+            consumer_key (string): getpocket apikey
+            user_email (string): getpocket user mail
+            password (string): getpocket password
+            browser (string): Browser settings
+        """
+
         self.browser = browser
         self.user_email = user_email
         self.password = password
@@ -108,8 +117,8 @@ class Pocket():
     def set_items_archive(self, item_ids):
         self.authenticate()
 
-        server_timezone = pytz.timezone("Europe/Rome")
-        server_time = datetime.now(server_timezone)
+        # server_timezone = pytz.timezone("Europe/Rome")
+        # server_time = datetime.now(server_timezone)
         item_data = []
         for item_id in item_ids:
             item_data.append(

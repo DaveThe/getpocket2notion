@@ -1,4 +1,4 @@
-import json
+# import json
 from os import environ
 
 import chromedriver_binary
@@ -22,9 +22,9 @@ chrome_options.add_argument("--no-sandbox")
 # Initialize a new browser
 browser = webdriver.Chrome(chrome_options=chrome_options)
 
-API_KEY = '94348-9117474f56856ca63c4ecf4a'
-USR = 'd.tresoldi5@gmail.com'
-PSW = 'JbdQb5HqR2sUsD'
+API_KEY = environ.get("API_KEY", "")
+USR = environ.get("USR", "")
+PSW = environ.get("PSW", "")
 
 token_v2 = environ.get("TOKEN_V2", "")
 page_link = environ.get("NOTION_LINK", "")
@@ -65,7 +65,7 @@ def handle_row(row, data):
 
 def add_row(collection, notion_view, data):
     try:
-        schema = collection.get("schema")
+        # schema = collection.get("schema")
         row = notion_view.collection.add_row()
         return handle_row(row=row, data=data)
     except Exception as e:
@@ -74,7 +74,7 @@ def add_row(collection, notion_view, data):
 
 
 def edit_row(collection, row, data):
-    schema = collection.get("schema")
+    # schema = collection.get("schema")
     return handle_row(row=row, data=data)
 
 
@@ -83,7 +83,7 @@ def main():
 
     if not items:
         logger.critical("Error getting items from pocket")
-        raise LookupError(f"Error getting items from pocket")
+        raise LookupError("Error getting items from pocket")
 
     item_list = items['list']
     if item_list:
@@ -129,7 +129,7 @@ def main():
             status = True
             if result:
                 logger.info("link esistente")
-                row = result[0]
+                # row = result[0]
                 # status = edit_row(collection=collection, row=row, data=item)
             else:
                 status = add_row(collection=collection, notion_view=collection_view, data=item)

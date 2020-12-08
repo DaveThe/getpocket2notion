@@ -45,8 +45,6 @@ def setup_log(unique_key=None, module_name=__name__, log_level="DEBUG"):
     else:
         if unique_key:
             format_message = '%(levelname)-8s- <[%(unique_key)25s]> - %(funcName)20s():%(lineno)4s- %(message)s'
-        elif g and 'unique_key' in g:
-            format_message = '%(levelname)-8s- <[%(g.unique_key)25s]> - %(funcName)20s():%(lineno)4s- %(message)s'
         else:
             format_message = '%(levelname)-8s- %(funcName)20s():%(lineno)4s- %(message)s'
         formatter = logging.Formatter(format_message)
