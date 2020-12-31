@@ -22,15 +22,6 @@ chrome_options.add_argument("--no-sandbox")
 # Initialize a new browser
 browser = webdriver.Chrome(chrome_options=chrome_options)
 
-API_KEY = environ.get("API_KEY", "")
-USR = environ.get("USR", "")
-PSW = environ.get("PSW", "")
-
-token_v2 = environ.get("TOKEN_V2", "")
-page_link = environ.get("NOTION_LINK", "")
-
-pocket = Pocket(consumer_key=API_KEY, user_email=USR, password=PSW, browser=browser)
-
 
 def handle_row(row, data):
     try:
@@ -79,6 +70,19 @@ def edit_row(collection, row, data):
 
 
 def main():
+
+    API_KEY = environ.get("API_KEY", "")
+    USR = environ.get("USR", "")
+    PSW = environ.get("PSW", "")
+
+    token_v2 = environ.get("TOKEN_V2", "")
+    page_link = environ.get("NOTION_LINK", "")
+
+    if not API_KEY or not USR or not PSW or not token_v2 or not page_link:
+        logger.critical("missing envar")
+        exit()
+
+    pocket = Pocket(consumer_key=API_KEY, user_email=USR, password=PSW, browser=browser)
     items = pocket.get_items(count=300, state='unread')
 
     if not items:
