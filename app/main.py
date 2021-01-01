@@ -100,11 +100,13 @@ def main():
                         key='authors',
                         value='name',
                         column='Authors')
+
         extract_element(collection=collection,
                         item_list=item_list,
                         key='tags',
                         value='tag',
                         column='Tags')
+
         lang = list(dict.fromkeys(([item_list[c]['lang'] for c in item_list])))
         for value in lang:
             _add_new_multi_select_value(collection=collection,
@@ -132,7 +134,7 @@ def main():
             # row = collection.get_rows(search=item_id)
             status = True
             if result:
-                logger.info("link esistente")
+                logger.info("the link exists, skipping")
                 # row = result[0]
                 # status = edit_row(collection=collection, row=row, data=item)
             else:
@@ -143,7 +145,7 @@ def main():
                 item_ids.append(item_id)
 
         pocket.set_items_archive(item_ids=item_ids)
-        logger.info("END")
+        logger.info(f"END - total new links: {len(item_list)}")
     else:
         logger.info("No link to import")
 

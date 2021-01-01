@@ -3,7 +3,7 @@ import json
 import logging
 import os
 
-FLASK_ENV = os.environ.get("FLASK_ENV", 'prod')
+LOG_TYPE = os.environ.get("LOG_TYPE", 'prod')
 
 
 class StackdriverFormatter(logging.Formatter):
@@ -39,7 +39,7 @@ def setup_log(unique_key=None, module_name=__name__, log_level="DEBUG"):
     extra = {'unique_key': unique_key}
     handler = logging.StreamHandler()
 
-    if FLASK_ENV != 'development':
+    if LOG_TYPE == 'gcp':
         formatter = StackdriverFormatter()
         handler.setFormatter(formatter)
 
