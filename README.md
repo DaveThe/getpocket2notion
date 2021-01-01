@@ -9,7 +9,7 @@ getpocket2notion helps you organize your links from getpocket.com to notion.so.
 
 getpocket2notion code is entirely open source.
 
-![logo](https://backdropcms.org/files/inline-images/logo.png)
+![logo](https://github.com/DaveThe/getpocket2notion/blob/main/images/logo.png?raw=true)
 
 # How to use this image
 - [create a getpocket app](https://getpocket.com/developer/docs/authentication)
